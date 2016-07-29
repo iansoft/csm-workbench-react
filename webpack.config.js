@@ -4,18 +4,21 @@
 // $ webpack -d//生成map映射文件，告知哪些模块被最终打包到哪里了
 
 const webpack = require('webpack');
-const commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
+const commonsPlugin = new webpack.optimize.CommonsChunkPlugin('csm.common.js');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CleanPlugin = require('clean-webpack-plugin');
 
-dodule.exports = {
+const outputFolder = './csm_workbench/static/js'
+
+module.exports = {
     devtool:"cheap-module-eval-source-map",
     entry: {
-        app1:'./src/js/app.js',
+        dashboard:'./csm_entry/csm.dashboard.js',
         //app2:'./src/js/app2.js',
     },
     output: {
-        path: './dist/js',
-        filename: '[name].bundle.js',
+        path: outputFolder,
+        filename: 'csm.[name].bundle.js',
         chunkFilename: "[name].js"
     },
     module: {
@@ -44,6 +47,8 @@ dodule.exports = {
         }),
         //它用于提取多个入口文件的公共脚本部分，然后生成一个 common.js 来方便多页面之间进行复用。
         commonsPlugin,
+        //首先清空out folder
+        new CleanPlugin(outputFolder),
         //独立打包css
         //new ExtractTextPlugin("[name].css")
     ],

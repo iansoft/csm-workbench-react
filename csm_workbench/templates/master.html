@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--<html lang="zh-cn">-->
+<html lang="en-us">
+    <head>
+        <title>{% block page-title %}{% endblock %}</title>
+
+        <!-- START META SECTION -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- END META SECTION -->
+
+        <!-- CSS INCLUDE -->
+        {% block css %}{% endblock %}
+        <!-- EOF CSS INCLUDE -->
+    </head>
+
+    <body>
+        <!-- START PAGE CONTAINER -->
+        <div class="page-container">
+            <div class="page-content-wrap">
+                {% block content %}
+                    <!-- include your custom page -->
+                {% endblock %}
+            </div>
+        </div>
+        <!-- END PAGE CONTAINER -->
+    </body>
+</html>

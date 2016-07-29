@@ -25,7 +25,7 @@ module.exports = {
         //"-loader"其实是可以省略不写的，多个loader之间用“!”连接起来。
         loaders: [
             //所有的.js文件都用babel-loader去处理，除了/node_modules中的文件/
-            {test: /\.js?$/, loaders: ['react-hot', 'babel'], exclude: /node_modules/ },
+            //{test: /\.js?$/, loaders: ['react-hot', 'babel'], exclude: /node_modules/ },
             {test: /\.js$/,loader: 'babel-loader',exclude: /node_modules/,},
             {test: /\.css$/, loader: 'style-loader!css-loader',exclude: /node_modules/,},
             {test: /\.scss$/, loader: 'style!css!sass?sourceMap',exclude: /node_modules/,},	
